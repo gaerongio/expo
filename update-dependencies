@@ -20,7 +20,7 @@ echo "$newCommit" > nix/nixpkgs.json
 
 # Generate nix files for a node 8 project with the npm dependency expo
 pushd nix/nodepackages
-nix run -f $nixdir nodePackages.node2nix --command node2nix -8 -i <(echo '["expo-cli"]')
+nix run -f $nixdir nodePackages.node2nix --command node2nix -8 -i <(echo '["expo-cli"]') --strip-optional-dependencies
 popd
 
 # Generate nix files for the bundix ruby gem
