@@ -107,11 +107,11 @@ workflows:
       - client_android
       - client_ios
       - shell_app_sim_base_ios
+      - test_suite_publish
   #     - shell_app_ios_tests:
   #         requires:
   #           - shell_app_sim_base_ios
   #           - test_suite_publish
-  #     - test_suite_publish # universe/tools/powertools
   #     - client_android_tests:
   #         requires:
   #           - test_suite_publish
@@ -210,3 +210,11 @@ jobs:
           path: ~/expo/android/exponent-release.apk
       - store_artifacts: # daemon logs for debugging crashes
           path: ~/.gradle/daemon/4.4
+
+  test_suite_publish:
+    executor: nix
+    steps:
+    - setup
+    - run:
+       working_director: ~/project/apps/test-suite
+       command: ./publish
