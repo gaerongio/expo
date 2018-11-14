@@ -9,8 +9,7 @@ self: super:
     gemdir = ./xcpretty;
   };
 
-  inherit
-    (super.callPackage ./nodepackages { pkgs = self; })
-    expo-cli
-    ;
+  expo-cli = (super.callPackage ./nodepackages { pkgs = self; }).expo-cli.override {
+    buildInputs = [ super.watchman ];
+  };
 }
