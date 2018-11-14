@@ -3,7 +3,7 @@
 
 branch="$(git rev-parse --abbrev-ref HEAD)"
 
-yarn install
+for i in {1..3}; do ((i > 1)) && sleep 5; yarn install && break; done
 
 export EXPO_DEBUG=true
 
