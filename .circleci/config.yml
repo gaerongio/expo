@@ -214,7 +214,8 @@ jobs:
   test_suite_publish:
     executor: nix
     steps:
-    - setup
-    - run:
-       working_directory: ~/project/apps/test-suite
-       command: ./publish.sh
+      - setup
+      - update_submodules
+      - run:
+          working_directory: ~/project/apps/test-suite
+          command: ./publish.sh
