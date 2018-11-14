@@ -216,5 +216,5 @@ jobs:
     steps:
     - setup
     - run:
-       working_director: ~/project/apps/test-suite
+       working_directory: ~/project/apps/test-suite
        command: ./publish.sh
